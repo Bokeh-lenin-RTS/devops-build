@@ -7,11 +7,11 @@ services:
       - "3000:80"
     container_name: test1
 
-version: '3.9'
+version: '3'
 
 services:
   jenkins:
-    image: jenkins/jenkins:lts
-    container_name: jenkins
-    ports:
-      - "8080:8080"
+  image: jenkins/jenkins:lts
+  containers-name: jenkins
+  ports:
+     - "8080:8080
