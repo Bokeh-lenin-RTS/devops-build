@@ -1,3 +1,4 @@
 #!/bin/bash
-sudo docker build -t web:v2 .
-docker-compose up -d 
+
+# Build Docker image
+docker build -t devops-build .

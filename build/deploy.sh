@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# Stop and remove the existing container
-docker stop reactjs-demo-app-1
-docker rm reactjs-demo-app-1
+# Server details
+SERVER_USER="Bokeh-lenin-RTS"
+SERVER_IP="13.53.169.239"
+DOCKER_IMAGE="devops-build"
 
-# Pull the latest image from Docker Hub
-docker pull sriganesh001/reactjs-demo
+# Copy Docker image to server
+docker save $DOCKER_IMAGE | ssh $SERVER_USER@$SERVER_IP 'docker load'
 
-# Start a new container with the updated image
-docker run -d --name reactjs-demo-app-1 -p 80:80 web:v2
+# Run Docker container on the server
+ssh $SERVER_USER@$SERVER_IP "docker-compose -f /path/to/docker-compose.yml up -d"
